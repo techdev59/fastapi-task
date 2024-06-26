@@ -6,6 +6,7 @@ from app.utils import create_access_token, verify_password
 
 router = APIRouter()
 
+
 @router.post("/signup", response_model=schemas.User)
 def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=user.email)
